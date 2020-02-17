@@ -2,9 +2,11 @@ import 'package:guesstheceleb/option.dart';
 
 class OptionControl {
   List<Options> _option = [
-    Options("KBC", "BKC", "CKC", "MKC"),
-    Options("A", "B", "C", "D"),
-    Options("W", "X", "Y", "Z")
+    Options("HULK", "LOKI", "THOR", "BLACK PANTHER"),
+    Options("HULK", "THOR", "LOKI", "RACOON"),
+    Options("CAPTAIN MARVEL", "BLACK WIDOW", "SCARLETT WITCH", "GAMORA"),
+    Options("CAPTAIN AMERICA", "IRON MAN", "STAR LORD", "LOKI"),
+    Options("CAPTAIN MARVEL", "BLACK WIDOW", "SCARLETT WITCH", "GAMORA"),
   ];
 
   String getOption1(int index) {

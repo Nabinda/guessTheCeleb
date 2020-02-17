@@ -37,30 +37,34 @@ class Guess extends StatefulWidget {
 class _GuessState extends State<Guess> {
   int optionNumber;
   String image = imageControl.getImages(index);
-  String text = imageControl.imageNumber().toString();
+  String text = "";
   String answer = imageControl.getResult(index);
   String optionText;
   void checkAnswer(String answer) {
     setState(() {
-      if (!imageControl.isFinished()) {
-        if (answer == imageControl.getResult(index)) {
-          text = "CORRECT";
-        } else
-          text = "WRONG";
+      if (answer == imageControl.getResult(index)) {
+        text = "CORRECT";
+      } else {
+        text = "WRONG";
+      }
+
+      if (imageControl.currentImage() != imageControl.imageNumber()) {
         index++;
-        image = imageControl.getImages(index);
       } else {
         Alert(context: context, title: "Game Over", buttons: [
           DialogButton(
             child: Text("PLAY AGAIN"),
             onPressed: () {
               Navigator.pop(context);
-              index = 0;
-              image = imageControl.getImages(index);
             },
           ),
-        ]);
+        ]).show();
+        index = 0;
+        text = "";
+        imageControl.resetNumber();
       }
+
+      image = imageControl.getImages(index);
     });
   }
 
